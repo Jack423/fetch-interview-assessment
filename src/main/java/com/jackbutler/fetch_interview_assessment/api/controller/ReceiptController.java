@@ -16,7 +16,7 @@ public class ReceiptController {
 
     private final ReceiptService receiptService;
 
-    @PostMapping("/processing")
+    @PostMapping("/process")
     public ProcessReceiptResponse processReceipt(@RequestBody Receipt receipt) {
         return ProcessReceiptResponse.builder()
                 .id(receiptService.saveReceipt(receipt))
