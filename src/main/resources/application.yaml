@@ -1,0 +1,29 @@
+server:
+  release: ${RELEASE:local}
+  port: ${PORT:8080}
+
+jackson:
+  default-property-inclusion: non_null
+  property-naming-strategy: CAMEL_CASE
+  deserialization:
+    fail-on-unknown-properties: false
+
+logging:
+  exception-conversion-word: >-
+    %wEx{full,
+        java.lang.reflect.Method,
+        io.undertow,
+        org.apache.catalina,
+        org.apache.http.impl,
+        org.springframework.aop,
+        org.springframework.boot.actuate,
+        org.springframework.security,
+        org.springframework.transaction,
+        org.springframework.web,
+        sun.reflect,
+        net.sf.cglib,
+        ByCGLIB
+    }
+  level:
+    root: INFO
+    com.jackbutler: ${log_level:DEBUG}
