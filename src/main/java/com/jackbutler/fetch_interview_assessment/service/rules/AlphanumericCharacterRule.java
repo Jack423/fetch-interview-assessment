@@ -26,8 +26,6 @@ public class AlphanumericCharacterRule implements PointCalculatorVisitor {
             result.append(matcher.group());
         }
 
-        log.info("Awarding {} points for Alphanumeric rule", result.length());
-
         return result.length();
     }
 }

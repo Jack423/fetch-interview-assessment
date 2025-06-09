@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    image: fetch-interview-assessment:latest
+    container_name: fetch-interview-assessment
+    environment:
+      - PORT=8080
+      - RELEASE:local
+    ports:
+      - 8080:8080

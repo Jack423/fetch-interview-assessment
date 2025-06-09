@@ -2,9 +2,7 @@ package com.jackbutler.fetch_interview_assessment.service.rules;
 
 import com.jackbutler.fetch_interview_assessment.model.Receipt;
 import com.jackbutler.fetch_interview_assessment.service.PointCalculatorVisitor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class TotalRoundDollarRule implements PointCalculatorVisitor {
 
     /**
@@ -14,7 +12,6 @@ public class TotalRoundDollarRule implements PointCalculatorVisitor {
      */
     @Override
     public int processReceipt(Receipt receipt) {
-        log.info("Awarding {} points for Total Round Dollar Rule", receipt.getTotal() % 1 == 0? 25 : 0);
         return receipt.getTotal() % 1 == 0? 50 : 0;
     }
 }

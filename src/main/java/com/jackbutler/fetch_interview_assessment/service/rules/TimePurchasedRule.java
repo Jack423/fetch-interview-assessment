@@ -2,11 +2,9 @@ package com.jackbutler.fetch_interview_assessment.service.rules;
 
 import com.jackbutler.fetch_interview_assessment.model.Receipt;
 import com.jackbutler.fetch_interview_assessment.service.PointCalculatorVisitor;
-import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalTime;
 
-@Slf4j
 public class TimePurchasedRule implements PointCalculatorVisitor {
 
     /**
@@ -19,11 +17,8 @@ public class TimePurchasedRule implements PointCalculatorVisitor {
     public int processReceipt(Receipt receipt) {
         if (receipt.getPurchaseTime().isAfter(LocalTime.of(14, 0))
                 && receipt.getPurchaseTime().isBefore(LocalTime.of(16, 0))) {
-            log.info("Awarding 10 points for Time Purchased rule");
             return 10;
         }
-
-        log.info("Awarding 0 points for Time Purchased rule");
 
         return 0;
     }
